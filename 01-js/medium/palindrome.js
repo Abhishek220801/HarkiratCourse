@@ -6,8 +6,26 @@
   - `npm run test-palindrome`
 */
 
+function transform(str){
+  let answer = ""
+  for(let i=0;i<str.length;i++){
+    if(str[i]!==" "&&str[i]!=='?'&&str[i]!==','&&str[i]!=='!'&&str[i]!=='.'){
+      answer+=str[i]
+    }
+  }
+  return answer
+}
+
 function isPalindrome(str) {
-  return true;
+  let str1 = str;
+  str1 = str.toLowerCase();
+  str1 = transform(str1);
+  let reversedString = str1.split("").reverse().join("");
+  if (reversedString === str1) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 module.exports = isPalindrome;
